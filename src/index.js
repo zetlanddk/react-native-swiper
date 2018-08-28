@@ -618,6 +618,16 @@ export default class extends Component {
   refScrollView = view => {
     this.scrollView = view;
   }
+  
+  onPageScrollStateChanged = state => {
+    switch (state) {
+      case 'dragging':
+        return this.onScrollBegin();
+      case 'idle':
+      case 'settling':
+        if (this.props.onTouchEnd) this.props.onTouchEnd();
+    }
+  }
 
   renderScrollView = pages => {
     if (Platform.OS === 'ios') {
