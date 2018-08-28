@@ -651,6 +651,7 @@ export default class extends Component {
         initialPage={this.props.loop ? this.state.index + 1 : this.state.index}
         onPageSelected={this.onScrollEnd}
         key={pages.length}
+        onPageScrollStateChanged={this.onPageScrollStateChanged}
         style={[styles.wrapperAndroid, this.props.style]}>
         {pages}
       </ViewPagerAndroid>
